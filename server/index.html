@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="icon" href="../../favicon.ico"> -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.11/vue.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <title>Document</title>
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="../static/css/signin.css" rel="stylesheet"> -->
+
+  </head>
+
+  <body>
+    <div id="app" class="div">
+      <h1>Vue + FastAPI</h1>
+      <br>
+      Please Input IP address:
+      <input type="text" v-model.lazy='ipp'>
+      <br>
+      Please Input message you would like to sent:
+      <input type="text" v-model.lazy='dataa'>
+      <br><br>
+      <button @click="ajaxx">Sent</button>
+      <br>
+      The message from backend is : {{ getData }}
+    </div>
+
+    <script>
+      var vm = new Vue.compile(
+        {
+          el: '#app',
+          data: {
+            getdata: '',
+            ipp:'http://0.0.0.0:8000',
+            dataa:''
+          },
+          methods: {
+            ajaxx(){
+              axios.get(this.ipp + this.dataa).then(
+                res => {
+                  console.log(res.data);
+                  this.getdata = res.data;
+                }
+              )
+            }
+          },
+        }
+      )
+    </script>
+
+
+  </body>
+</html>

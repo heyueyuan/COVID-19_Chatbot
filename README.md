@@ -7,6 +7,10 @@ This code has three part
 - Server
 
 ## How to use
+### Load Weights
+1. [Download](https://drive.google.com/file/d/16YZsuMSvhK-oNwG5PioRAPspzv_k5LUW/view?usp=sharing) Model Weights
+2. Move it to this folder
+
 ### Web UI
 1. Go to web folder
 2. Start dev server
